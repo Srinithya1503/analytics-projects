@@ -67,7 +67,8 @@ This folder will contain Excel-based dashboards such as:
 
 I have completed the following course(s) to build my Excel foundation:
 
-- 📘 **Google Data Analytics Professional Certificate**
+- **[Google Data Analytics Professional Certificate]**(https://github.com/Srinithya1503/My-Certificates-and-Portfolio/blob/main/Sri_Nithya_S_GDA.pdf)
+- **[MS Excel]**(https://github.com/Srinithya1503/My-Certificates-and-Portfolio/blob/main/be10x/Sri_NIthya_MS_Excel_be10x.pdf)
 ---
 
 ## 📚 Learning Resources
