@@ -58,10 +58,10 @@ Business Insights & Recommendations
 ## Repository Structure
 
 ```text
-├── pharmafield_iq.py                      # Main Python analysis and automation script
+├── pharmafield_iq.py                      # Main Python data cleaning script
+├── sql-analytics.sql                      # PostgreSQL anaysis script
 ├── Field_Execution_Performance_Report.xlsx # Auto-generated multi-sheet Excel report
-├── dataset/
-│   └── pharmafield_iq_dataset.csv         # Raw source dataset (KPIs, field metrics)
+├── pharmafield_iq_dataset.csv         # Raw source dataset (KPIs, field metrics)
 └── README.md                              # Project documentation
 ```
 
