@@ -1,18 +1,13 @@
 """
 PharmaField-IQ
 Python Data Analytics Pipeline
-
 Purpose:
 - Load pharmaceutical field execution dataset
 - Perform data validation
 - Conduct exploratory analysis
 - Generate KPI summaries
 - Prepare data for SQL analytics
-
-Author:
-Sri Nithya
 """
-
 
 # ============================================================
 # IMPORT LIBRARIES
@@ -21,26 +16,17 @@ Sri Nithya
 import pandas as pd
 import numpy as np
 
-
 # ============================================================
 # LOAD DATA
 # ============================================================
 
-DATA_PATH = "./data/pharmafield_iq_dataset.csv"
-
-
+DATA_PATH = "/data/pharmafield_iq_dataset.csv"
 df = pd.read_csv(DATA_PATH)
-
-
 print("="*60)
 print("PHARMAFIELD-IQ DATA ANALYTICS PIPELINE")
 print("="*60)
-
-
 print("\nDataset Shape:")
 print(df.shape)
-
-
 
 # ============================================================
 # BASIC EXPLORATION
@@ -48,110 +34,37 @@ print(df.shape)
 
 print("\nDataset Information")
 print(df.info())
-
-
 print("\nFirst Five Records")
 print(df.head())
-
-
 print("\nSummary Statistics")
-
-print(
-    df[
-        [
-            "Target_Value",
-            "Actual_Sales",
-            "Calls_Made",
-            "Samples_Distributed"
-        ]
-    ].describe()
-)
-
-
+print(df[[ "Target_Value", "Actual_Sales", "Calls_Made", "Samples_Distributed"]].describe())
 
 # ============================================================
 # DATA QUALITY CHECKS
 # ============================================================
-
-
 print("\nMissing Values")
-
 print(df.isnull().sum())
-
-
-
 print("\nDuplicate Records")
-
 print(df.duplicated().sum())
 
-
-
 # Negative value validation
-
-numeric_columns = [
-    "Target_Value",
-    "Actual_Sales",
-    "Calls_Made",
-    "Samples_Distributed"
-]
-
-
+numeric_columns = ["Target_Value", "Actual_Sales", "Calls_Made", "Samples_Distributed"]
 print("\nNegative Value Check")
-
-
 for col in numeric_columns:
-
-    count = (df[col] < 0).sum()
-
-    print(
-        f"{col}: {count}"
-    )
-
-
+  count = (df[col] < 0).sum()
+  print(f"{col}: {count}")
 
 # ============================================================
 # DATA CLEANING
 # ============================================================
 
-
 clean_df = df.copy()
-
-
-
 # Replace invalid sales values
-
-clean_df.loc[
-    clean_df["Actual_Sales"] < 0,
-    "Actual_Sales"
-] = 0
-
-
-
+clean_df.loc[clean_df["Actual_Sales"] < 0, "Actual_Sales"] = 0
 # Missing call values
-
-clean_df["Calls_Made"] = (
-
-    clean_df["Calls_Made"]
-    .fillna(
-        clean_df["Calls_Made"].median()
-    )
-
-)
-
-
-
+clean_df["Calls_Made"] = (clean_df["Calls_Made"].fillna(clean_df["Calls_Made"].median()))
 # Remove records without target
-
-clean_df = (
-
-    clean_df
-    .dropna(
-        subset=[
-            "Target_Value"
-        ]
-    )
-
-)
+clean_df = (clean_df.dropna(subset=["Target_Value"]))
 
 
 
