@@ -1,11 +1,11 @@
-# 📊 Excel Dashboards Portfolio
+# Data Analytics using MS Excel
 
 Welcome to the **Excel Dashboards** section of my Data Analytics portfolio.  
 This repository contains dashboards built using **Microsoft Excel**, focusing on transforming raw data into **clear, interactive, and insight-driven reports**.
 
 ---
 
-## 🎯 Objective
+##  Objective
 
 This repository is part of my journey to:
 
@@ -16,46 +16,46 @@ This repository is part of my journey to:
 
 ---
 
-## 🧠 Key Learning Areas
+## Key Learning Areas
 
-### 📌 Data Cleaning & Preparation
+### Data Cleaning & Preparation
 - Handling missing values  
 - Formatting datasets  
 - Removing duplicates  
 - Structuring raw data  
 
-### 📊 Excel Functions & Formulas
+### Excel Functions & Formulas
 - IF, VLOOKUP, HLOOKUP  
 - INDEX & MATCH  
 - COUNTIF, SUMIF  
 - Logical and text functions  
 
-### 📈 Pivot Tables & Analysis
+### Pivot Tables & Analysis
 - Creating pivot tables  
 - Aggregating data  
 - Filtering and slicing datasets  
 
-### 📉 Dashboard Creation
+### Dashboard Creation
 - Designing interactive dashboards  
 - Using charts (bar, line, pie, combo)  
 - Slicers and filters for interactivity  
 
 ---
 
-## 📂 Projects Included
+## Projects Included
 
 This folder will contain Excel-based dashboards such as:
 
-- 🛒 Ecommerce Sales Dashboard  
-- 📈 Sales Performance Analysis  
-- 🧑‍💼 HR Analytics Dashboard  
-- 💰 Financial Data Dashboard  
+- Ecommerce Sales Dashboard  
+- Sales Performance Analysis  
+- HR Analytics Dashboard  
+- Financial Data Dashboard  
 
 *(More projects will be added as I continue learning and building.)*
 
 ---
 
-## 🛠 Tools Used
+## Tools Used
 
 - **Microsoft Excel**
 - Basic data sources (CSV, Excel datasets)
@@ -63,28 +63,27 @@ This folder will contain Excel-based dashboards such as:
 
 ---
 
-## 🎓 Certification
+## Certification
 
 I have completed the following course(s) to build my Excel foundation:
 
 - **[Google Data Analytics Professional Certificate]**(https://github.com/Srinithya1503/My-Certificates-and-Portfolio/blob/main/Sri_Nithya_S_GDA.pdf)
-- **[MS Excel]**(https://github.com/Srinithya1503/My-Certificates-and-Portfolio/blob/main/be10x/Sri_NIthya_MS_Excel_be10x.pdf)
 ---
 
-## 📚 Learning Resources
+## Learning Resources
 
-### 🌐 Websites
+### Websites
 - https://www.excel-practice-online.com/  
 - https://www.contextures.com/excel.html  
 
-### ▶️ YouTube Learning
+### YouTube Learning
 - [LeilaGharani](https://www.youtube.com/channel/UCJtUOos_MwJa_Ewii-R3cJA) | [Basics](https://youtube.com/playlist?list=PLmHVyfmcRKyx1KSoobwukzf1Nf-Y97Rw0&si=vSK6Gc461uxBAKji) | [Charts](https://www.youtube.com/playlist?list=PLmHVyfmcRKyyEj7oQkCf7TL9yQQWXbGOQ)
 - [Chandoo](https://www.youtube.com/@chandoo_) | [Power Query](https://youtube.com/playlist?list=PLmejDGrsgFyBetznPo8585MNp5k4OYxmr&si=tvHRhcMRHNEDVkNC)
 - [MyOnlineTrainingHub](https://www.youtube.com/user/MyOnlineTrainingHub) | [Dashboards](https://youtube.com/playlist?list=PLmd91OWgLVSLy87GfZCR74BG1nhO7ER0s&si=cblz4MDYVeKBuxoi)
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 - Advanced Excel dashboards with automation  
 - Integration with Power Query  
@@ -93,7 +92,7 @@ I have completed the following course(s) to build my Excel foundation:
 
 ---
 
-## 💡 What This Repository Demonstrates
+## What This Repository Demonstrates
 
 - Strong foundation in **data analysis using Excel**  
 - Ability to convert raw data into **business insights**  
