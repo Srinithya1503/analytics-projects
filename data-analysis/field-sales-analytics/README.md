@@ -55,6 +55,18 @@ Business Insights & Recommendations
 
 ---
 
+## Repository Structure
+
+```text
+├── pharmafield_iq.py                      # Main Python analysis and automation script
+├── Field_Execution_Performance_Report.xlsx # Auto-generated multi-sheet Excel report
+├── dataset/
+│   └── pharmafield_iq_dataset.csv         # Raw source dataset (KPIs, field metrics)
+└── README.md                              # Project documentation
+```
+
+---
+
 ## Dataset Description
 
 The dataset represents pharmaceutical field-force execution performance.
@@ -120,20 +132,6 @@ Contains:
 - Data quality issues
 - Remediation actions
 - Validation status
-
----
-
-## Repository Structure
-
-│
-├── pharmafield_iq.py
-│
-├── Field_Execution_Performance_Report.xlsx
-│
-├── dataset/
-│ └── pharmafield_iq_dataset.csv
-│
-├── README.md
 
 ---
 
