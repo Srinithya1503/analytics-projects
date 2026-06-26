@@ -20,8 +20,8 @@ import numpy as np
 # LOAD DATA
 # ============================================================
 
-DATA_PATH = "/data/pharmafield_iq_dataset.csv"
-df = pd.read_csv(DATA_PATH)
+DATA_PATH = "pharmafield_iq_dataset.xlsx"
+df = pd.read_excel(DATA_PATH)
 print("="*60)
 print("PHARMAFIELD-IQ DATA ANALYTICS PIPELINE")
 print("="*60)
@@ -98,6 +98,6 @@ print(underperforming)
 # ============================================================
 # EXPORT CLEAN DATA
 # ============================================================
-clean_df.to_csv("/data/pharmafield_clean_dataset.csv", index=False)
-territory_summary.to_csv("/data/territory_kpi_summary.csv", index=False)
+clean_df.to_excel("pharmafield_clean_dataset.excel", index=False)
+territory_summary.to_excel("territory_kpi_summary.excel", index=False)
 print("\nAnalytics Completed Successfully")
