@@ -65,140 +65,39 @@ clean_df.loc[clean_df["Actual_Sales"] < 0, "Actual_Sales"] = 0
 clean_df["Calls_Made"] = (clean_df["Calls_Made"].fillna(clean_df["Calls_Made"].median()))
 # Remove records without target
 clean_df = (clean_df.dropna(subset=["Target_Value"]))
-
-
-
 print("\nClean Dataset Shape")
-
 print(clean_df.shape)
-
-
 
 # ============================================================
 # KPI CREATION
 # ============================================================
 
-
-clean_df["Achievement_Percentage"] = (
-
-    clean_df["Actual_Sales"]
-    /
-    clean_df["Target_Value"]
-
-) * 100
-
-
-
-clean_df["Sales_Per_Call"] = (
-
-    clean_df["Actual_Sales"]
-    /
-    clean_df["Calls_Made"]
-
-)
-
-
+clean_df["Achievement_Percentage"] = (clean_df["Actual_Sales"]/clean_df["Target_Value"]) * 100
+clean_df["Sales_Per_Call"] = (clean_df["Actual_Sales"]/clean_df["Calls_Made"])
 
 # ============================================================
 # TERRITORY ANALYSIS
 # ============================================================
+territory_summary = (clean_df.groupby(["Region","Territory"]).agg(Rep_Count=("Rep_ID","count"),
+Total_Target=("Target_Value","sum"),Total_Sales=("Actual_Sales","sum"),Avg_Calls=("Calls_Made","mean"),
+Avg_Samples=("Samples_Distributed","mean")).reset_index())
 
-
-territory_summary = (
-
-clean_df
-
-.groupby(
-    [
-        "Region",
-        "Territory"
-    ]
-)
-
-.agg(
-
-    Rep_Count=("Rep_ID","count"),
-
-    Total_Target=("Target_Value","sum"),
-
-    Total_Sales=("Actual_Sales","sum"),
-
-    Avg_Calls=("Calls_Made","mean"),
-
-    Avg_Samples=("Samples_Distributed","mean")
-
-)
-
-.reset_index()
-
-)
-
-
-
-territory_summary["Achievement_Percentage"] = (
-
-territory_summary["Total_Sales"]
-
-/
-
-territory_summary["Total_Target"]
-
-)*100
-
-
-
-territory_summary["Sales_Per_Call"] = (
-
-territory_summary["Total_Sales"]
-
-/
-
-territory_summary["Avg_Calls"]
-
-)
-
-
+territory_summary["Achievement_Percentage"] = (territory_summary["Total_Sales"]/territory_summary["Total_Target"])*100
+territory_summary["Sales_Per_Call"] = (territory_summary["Total_Sales"]/territory_summary["Avg_Calls"])
 
 print("\nTerritory Performance")
-
-print(
-    territory_summary.head()
-)
-
-
+print(territory_summary.head())
 
 # ============================================================
 # IDENTIFY UNDERPERFORMING TERRITORIES
 # ============================================================
-
-
-underperforming = (
-
-territory_summary
-
-[
-territory_summary[
-"Achievement_Percentage"
-]
-<90
-]
-
-)
-
-
+underperforming = (territory_summary[territory_summary["Achievement_Percentage"]<90])
 print("\nUnderperforming Territories")
-
-print(
-    underperforming
-)
-
+print(underperforming)
 
 # ============================================================
 # EXPORT CLEAN DATA
 # ============================================================
 clean_df.to_csv("/data/pharmafield_clean_dataset.csv", index=False)
 territory_summary.to_csv("/data/territory_kpi_summary.csv", index=False)
-
-
-
 print("\nAnalytics Completed Successfully")
