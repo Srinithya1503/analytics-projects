@@ -2,21 +2,6 @@
 analytical_pipeline.py
 ------------------------
 The core analytics engine for PharmaBrand-IQ.
-
-This script does two things:
-
-Task A - Physician Segmentation
-    Groups physicians into 3 marketing segments using KMeans clustering,
-    based on how they engage with digital ads, sales reps, and samples.
-
-Task B - Marketing Mix Modeling (MMM)
-    Fits a linear regression model to estimate how much each marketing
-    channel (Digital, Sales Reps, Samples) contributes to prescriptions,
-    which gives us a simple, interpretable view of channel ROI.
-
-Run this script after data_generator.py has created 'physician_data.csv'.
-It will produce 'final_physician_insights.csv' and print a clean summary
-of the regression results to the console.
 """
 
 import pandas as pd
