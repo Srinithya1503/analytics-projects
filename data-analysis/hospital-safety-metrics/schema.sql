@@ -1,14 +1,6 @@
 -- =====================================================================
 -- HospSafe-Analytics: CMS Patient Safety & Quality Performance Tracker
 -- schema.sql
---
--- Purpose:
---   Builds a two-table relational schema in MySQL that models the
---   structure of the publicly available CMS "Hospital General
---   Information" dataset (data.cms.gov), plus a companion table of
---   patient-safety-group quality measure counts modeled after CMS's
---   Timely & Effective Care / Patient Safety measure group summaries.
---
 -- Engine: MySQL 8.0+
 -- =====================================================================
 
@@ -63,8 +55,6 @@ CREATE INDEX idx_safety_metrics_facility ON safety_metrics (facility_id);
 -- =====================================================================
 -- MOCK DATA LOAD
 -- 220 hospitals (exceeds the 200+ requirement) with paired safety_metrics
--- rows, spanning 20 states, 9 CMS ownership categories, and star ratings
--- 1-5 (plus a realistic ~8% "unrated" slice modeled as NULL).
 -- =====================================================================
 
 INSERT INTO hospitals (facility_id, facility_name, state, hospital_type, hospital_ownership, overall_rating)
@@ -514,13 +504,6 @@ VALUES
 
 -- =====================================================================
 -- ANALYTICAL EXPORT QUERY
--- This is the query an analyst would run in MySQL Workbench and export
--- (Table Data Export Wizard -> Excel/CSV) to produce
--- "cms_hospital_safety_export.xlsx", the file consumed by
--- notebook_analysis.py. It joins both tables and pre-computes a
--- performance baseline (variance from group average) per facility so
--- the Python layer can focus on modeling/visualization rather than
--- re-deriving joins.
 -- =====================================================================
 
 SELECT
@@ -536,15 +519,11 @@ SELECT
     sm.safety_measures_worse,
     sm.readm_measures_worse,
 
-    -- Share of a facility's reported measures that are flagged "worse"
-    -- than the national rate; guards against divide-by-zero.
     ROUND(
         sm.safety_measures_worse /
         NULLIF(sm.safety_group_measure_count, 0), 4
     ) AS pct_measures_worse,
 
-    -- Facility's worse-measure rate compared against the state average
-    -- worse-measure rate, giving a quick "above/below peer baseline" signal.
     ROUND(
         (sm.safety_measures_worse / NULLIF(sm.safety_group_measure_count, 0)) -
         AVG(sm.safety_measures_worse / NULLIF(sm.safety_group_measure_count, 0))
@@ -564,4 +543,3 @@ INNER JOIN safety_metrics sm
     ON h.facility_id = sm.facility_id
 ORDER BY h.state, h.facility_name;
 
--- End of schema.sql
