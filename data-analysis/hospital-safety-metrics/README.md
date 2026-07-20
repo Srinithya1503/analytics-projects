@@ -57,7 +57,6 @@ hospitals whose safety and readmission performance is trending worse than their 
 | `schema.sql` | MySQL DDL, 220-row mock data load, and the final analytical export query |
 | `analysis.ipynb` | Jupyter-cell-formatted Pandas analysis (open in VS Code/Jupyter or convert with `jupytext`) |
 | `README.md` | This file |
-| `Dashboard.pbix` | Power BI Dashboard | 
 ---
 
 ## Reproducibility Walkthrough
